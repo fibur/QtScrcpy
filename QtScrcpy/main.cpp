@@ -9,6 +9,10 @@
 #include "config.h"
 #include "dialog.h"
 
+#if defined(Q_OS_WIN32) || defined(Q_OS_OSX)
+    #include "mousetap/mousetap.h"
+#endif
+
 static Dialog *g_mainDlg = Q_NULLPTR;
 static QtMessageHandler g_oldMessageHandler = Q_NULLPTR;
 void myMessageOutput(QtMsgType type, const QMessageLogContext &context, const QString &msg);

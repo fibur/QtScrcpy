@@ -43,12 +43,6 @@ void XMouseTap::enableMouseEventTap(QRect rc, bool enabled) {
 
     Window rootWindow = RootWindow(display, screenNumber);
 
-    XRectangle xRect;
-    xRect.x = static_cast<short>(rc.x());
-    xRect.y = static_cast<short>(rc.y());
-    xRect.width = static_cast<unsigned short>(rc.width());
-    xRect.height = static_cast<unsigned short>(rc.height());
-
     if (enabled) {
         int result = XGrabPointer(display, rootWindow, True,
                                   ButtonPressMask | ButtonReleaseMask | PointerMotionMask,
